@@ -1,6 +1,7 @@
 streamlit
-torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-torchaudio 
+torch
+torchvision
+torchaudio
 easyocr
 pix2tex
 pillow

@@ -5,3 +5,4 @@ transformers
 pillow
 numpy
 pix2tex
+pix2tex[gui

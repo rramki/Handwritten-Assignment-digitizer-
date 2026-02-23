@@ -46,7 +46,7 @@ if uploaded_file is not None:
     st.subheader("📄 Extracted Text")
     st.text_area("Editable Text", extracted_text, height=200)
 
-    import easyocr
+
 
 reader = easyocr.Reader(['ta'])
 result = reader.readtext(uploaded_file)

@@ -49,7 +49,7 @@ if uploaded_file is not None:
 
 
 
-st.title("🧮 Handwritten Math Equation → LaTeX Converter")
+st.subheader("🧮 Handwritten Math Equation → LaTeX Converter")
 
 st.write("Upload an image of a handwritten mathematical equation.")
 

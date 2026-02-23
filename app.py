@@ -46,21 +46,4 @@ if uploaded_file is not None:
     st.subheader("📄 Extracted Text")
     st.text_area("Editable Text", extracted_text, height=200)
 
-    # Handwritten recognition using TrOCR
-    #st.write("🧠 Processing Handwritten Recognition...")
     
-    #pixel_values = processor(images=image, return_tensors="pt").pixel_values
-    #generated_ids = model.generate(pixel_values)
-    #trocr_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
-    
-    model = LatexOCR()
-    latex_result = model(image)
-
-    st.subheader("✍ TrOCR Output")
-    st.text_area("Handwritten Model Output", trocr_text, height=200)
-
-    st.subheader("🧮 Extracted LaTeX")
-    st.text_area("LaTeX Code", latex_result, height=200)
-
-    st.subheader("🔎 Rendered LaTeX")
-    st.latex(latex_result)

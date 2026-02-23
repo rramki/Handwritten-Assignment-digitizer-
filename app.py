@@ -49,3 +49,26 @@ if uploaded_file is not None:
 
 
 
+st.title("🧮 Handwritten Math Equation → LaTeX Converter")
+
+st.write("Upload an image of a handwritten mathematical equation.")
+
+uploaded_file2 = st.file_uploader("Upload Image", type=["png", "jpg", "jpeg"])
+
+if uploaded_file2 is not None:
+    image2 = Image.open(uploaded_file2)
+    st.image(image, caption="Uploaded Image", use_column_width=True)
+
+    with st.spinner("Processing... Please wait."):
+        model = LatexOCR()   # Loads model
+        latex_code = model(image2)
+
+    st.success("Conversion Complete!")
+
+    st.subheader("📌 LaTeX Output:")
+    st.code(latex_code, language="latex")
+
+    st.subheader("📐 Rendered Equation:")
+    st.latex(latex_code)
+
+

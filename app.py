@@ -46,7 +46,7 @@ if uploaded_file is not None:
     st.subheader("📄 Extracted Text")
     st.text_area("Editable Text", extracted_text, height=100)
 
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+ 
     
   
 

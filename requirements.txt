@@ -4,5 +4,5 @@ easyocr
 transformers
 pillow
 numpy
-pix2tex
-tempfile
+pix2tex[gui]
+

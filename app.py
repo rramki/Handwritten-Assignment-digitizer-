@@ -47,11 +47,4 @@ if uploaded_file is not None:
     st.text_area("Editable Text", extracted_text, height=200)
 
 
-
-reader = easyocr.Reader(['ta'])
-result = reader.readtext(uploaded_file)
-
-for detection in result:
-    print(detection[1])
-
     

@@ -47,4 +47,11 @@ if uploaded_file is not None:
     st.text_area("Editable Text", extracted_text, height=200)
 
 
-    
+
+from pix2tex.cli import LatexOCR
+st.title("📝 Handwritten Mathematical Equation → Text / LaTeX")
+uploaded_file2 = st.file_uploader("Upload Image", type=["png","jpg","jpeg"])
+model = LatexOCR()
+latex = model("uploaded_file2.png")
+
+print(latex)    

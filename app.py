@@ -46,22 +46,10 @@ if uploaded_file is not None:
     st.subheader("📄 Extracted Text")
     st.text_area("Editable Text", extracted_text, height=200)
 
-
-
-
-st.subheader("🧮 Handwritten Math Equation → LaTeX Converter")
-
-st.write("Upload an image of a handwritten mathematical equation.")
-
-uploaded_file2 = st.file_uploader("Upload Image", type=["png", "jpg", "jpeg"])
-
-if uploaded_file2 is not None:
-    image2 = Image.open(uploaded_file2)
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    with st.spinner("Processing... Please wait."):
-        model = LatexOCR()   # Loads model
-        latex_code = model(image2)
+    model = LatexOCR()   # Loads model
+    latex_code = model(image)
 
     st.success("Conversion Complete!")
 

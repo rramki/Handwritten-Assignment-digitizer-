@@ -46,7 +46,27 @@ if uploaded_file is not None:
     st.subheader("📄 Extracted Text")
     st.text_area("Editable Text", extracted_text, height=100)
 
- 
-    
+
+
+@st.cache_resource
+def load_model():
+    return LatexOCR()
+
+st.title("🧮 Handwritten Math → LaTeX")
+
+uploaded_file = st.file_uploader("Upload Image", type=["png", "jpg", "jpeg"])
+
+if uploaded_file:
+    image = Image.open(uploaded_file)
+    st.image(image)
+
+    model = load_model()
+
+    with st.spinner("Processing..."):
+        latex_code = model(image)
+
+    st.success("Done!")
+    st.code(latex_code, language="latex")
+    st.latex(latex_code)
   
 

@@ -3,7 +3,6 @@ from PIL import Image
 import easyocr
 import numpy as np
 from pix2tex.cli import LatexOCR
-
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 import torch
 
@@ -15,15 +14,12 @@ reader = load_reader()
 
 @st.cache_resource
 def load_trocr():
-    processor = TrOCRProcessor.from_pretrained(
-        "microsoft/trocr-small-handwritten")
-    
-    model = VisionEncoderDecoderModel.from_pretrained(
-        "microsoft/trocr-small-handwritten")
-    
-    model.eval()
-    return processor, model
+    processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
+    model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten")
 
+    model.to("cpu")
+    return processor, model
+    
 processor, model = load_trocr()
 
 
